@@ -3,178 +3,268 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Дмитрий Снеговской — создание и доработка сайтов для бизнеса, интернет-магазинов и каталогов товаров. Краснодар и удалённая работа.">
+  <meta name="description" content="Дмитрий Снеговской — разработка и доработка сайтов для бизнеса. Интерактивный кейс интернет-магазина «Теплоград».">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Дмитрий Снеговской — сайты для бизнеса">
-  <meta property="og:description" content="Создание и доработка сайтов, каталогов и интернет-магазинов.">
-  <meta name="theme-color" content="#f7f8fc">
-  <title>Дмитрий Снеговской — создание и доработка сайтов для бизнеса</title>
+  <meta property="og:description" content="Сайты, каталоги и интернет-магазины. Посмотрите интерактивный кейс «Теплоград».">
+  <meta name="theme-color" content="#14132a">
+  <title>Дмитрий Снеговской — сайты для бизнеса</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
-  <header class="header">
-    <div class="wrap header-inner">
+  <div class="intro" id="top">
+    <header class="site-header wrap">
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">ДС</span> Дмитрий Снеговской</a>
       <nav class="nav" aria-label="Основная навигация">
+        <a href="#work">Проект</a>
         <a href="#services">Услуги</a>
-        <a href="#work">Работы</a>
-        <a href="#process">Процесс</a>
         <a href="#about">Обо мне</a>
       </nav>
-      <a class="header-contact" href="#contact">Связаться <span aria-hidden="true">↗</span></a>
-    </div>
-  </header>
-  <main id="main" tabindex="-1">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="wrap hero-inner">
-        <div>
-          <p class="eyebrow"><span></span> Веб-разработка для бизнеса</p>
-          <h1 id="hero-title">Создание и доработка <em>сайтов для бизнеса</em></h1>
-          <p class="hero-text">Помогаю представить товары и услуги в интернете, настроить приём заявок и сделать сайт удобным для посетителей.</p>
+      <a class="header-contact" href="#contact">Связаться <span class="diagonal-arrow" aria-hidden="true"></span></a>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow">Веб-разработка · Краснодар и удалённо</p>
+          <h1 id="hero-title">Сайты для <span>бизнеса</span></h1>
+          <p class="hero-text">Создаю и дорабатываю сайты, каталоги и интернет-магазины. Помогаю настроить поиск товаров и приём заявок.</p>
           <div class="actions">
-            <a class="button primary" href="#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
-            <a class="button secondary" href="#work">Посмотреть работы <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#work">Смотреть проект <span aria-hidden="true">↓</span></a>
+            <a class="button button-outline" href="#contact">Обсудить задачу <span class="diagonal-arrow" aria-hidden="true"></span></a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-orbit orbit-outer"></div><div class="art-orbit orbit-inner"></div>
-          <div class="art-browser">
-            <div class="browser-bar"><i></i><i></i><i></i><b></b></div>
-            <div class="browser-body">
-              <div class="browser-copy"><i></i><i></i><i></i><b></b></div>
-              <div class="browser-image"><div></div></div>
-              <div class="browser-cards"><i></i><i></i><i></i></div>
+        <figure class="hero-art">
+          <a class="hero-art-link" href="#work" aria-label="Посмотреть кейс интернет-магазина «Теплоград»">
+            <div class="hero-browser">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Теплоград · ДЕМО</span></div>
+              <img src="assets/screenshots/01-home.webp" width="1800" height="1022" alt="Главная страница магазина «Теплоград»" fetchpriority="high">
+            </div>
+            <div class="hero-phone">
+              <img src="assets/screenshots/04-mobile.webp" width="688" height="1370" alt="" decoding="async">
+            </div>
+          </a>
+          <figcaption><span aria-hidden="true"></span> «Теплоград» на компьютере и телефоне</figcaption>
+        </figure>
+      </section>
+      <div class="page-content">
+        <section class="section wrap" id="work" aria-labelledby="work-title">
+          <div class="case-intro">
+            <div>
+              <p class="eyebrow">Проект из портфолио</p>
+              <h2 id="work-title">Теплоград</h2>
+              <p class="case-subtitle">Интернет-магазин отопительного оборудования</p>
+            </div>
+            <div class="case-summary">
+              <p>Покупатель может подобрать оборудование в каталоге и отправить заявку из корзины. Я доработал этот сценарий и проверил его на компьютере и телефоне.</p>
+              <p class="case-status"><span aria-hidden="true"></span> Демоверсия с тестовыми данными</p>
             </div>
           </div>
-          <div class="art-phone"><i></i><b></b><span></span><span></span><strong></strong></div>
-          <span class="art-plus plus-top">+</span><span class="art-plus plus-bottom">+</span>
-        </div>
-      </div>
-    </section>
 
-    <section class="section wrap" id="services" aria-labelledby="services-title">
-      <p class="eyebrow"><span></span> Услуги</p>
-      <h2 id="services-title">Чем могу помочь</h2>
-      <div class="services-grid">
-        <article class="service"><span class="icon" aria-hidden="true">▣</span><h3>Сайты для бизнеса</h3><p>Представлю компанию, её услуги и контакты на сайте, где посетителю легко найти нужную информацию.</p></article>
-        <article class="service"><span class="icon" aria-hidden="true">⊞</span><h3>Каталоги и интернет-магазины</h3><p>Организую карточки товаров, поиск, фильтры и корзину под ваш ассортимент.</p></article>
-        <article class="service"><span class="icon" aria-hidden="true">↗</span><h3>Доработка сайта</h3><p>Обновлю страницы, исправлю ошибки или добавлю нужные функции, в том числе на WordPress.</p></article>
-        <article class="service"><span class="icon" aria-hidden="true">▯</span><h3>Мобильная версия</h3><p>Улучшу меню, кнопки и формы, чтобы сайтом было удобно пользоваться с телефона.</p></article>
-        <article class="service"><span class="icon" aria-hidden="true">✉</span><h3>Формы и приём заявок</h3><p>Помогу настроить форму и подобрать канал для заявок, например почту или мессенджер.</p></article>
-        <article class="service"><span class="icon" aria-hidden="true">✓</span><h3>Проверка сайта</h3><p>Проверю основные действия посетителей, от поиска товара до отправки заявки.</p></article>
-      </div>
-    </section>
-
-    <section class="section work-section" id="work" aria-labelledby="work-title">
-      <div class="wrap">
-        <p class="eyebrow"><span></span> Портфолио</p>
-        <h2 id="work-title">Проекты</h2>
-        <div class="projects">
-          <article class="project">
-            <div class="gallery" aria-label="Галерея проекта Теплоград">
-              <figure id="teplograd-catalog">
-                <a class="screenshot-link" href="assets/screenshots/02-catalog.webp" aria-label="Увеличить: Каталог, поиск и фильтры">
-                  <img src="assets/screenshots/02-catalog.webp" width="1800" height="1061" alt="Карточки отопительного оборудования в каталоге" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Каталог, поиск и фильтры</figcaption>
-              </figure>
-              <figure id="teplograd-cart">
-                <a class="screenshot-link" href="assets/screenshots/03-cart.webp" aria-label="Увеличить: Корзина и оформление заявки">
-                  <img src="assets/screenshots/03-cart.webp" width="1800" height="1280" alt="Интерфейс корзины тестового магазина" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Корзина и оформление заявки</figcaption>
-              </figure>
-              <figure id="teplograd-mobile">
-                <a class="screenshot-link" href="assets/screenshots/04-mobile.webp" aria-label="Увеличить: Витрина на телефоне">
-                  <img src="assets/screenshots/04-mobile.webp" width="688" height="1370" alt="Интерфейс магазина на узком экране" loading="lazy" decoding="async">
-                </a>
-                <figcaption>Витрина на телефоне</figcaption>
-              </figure>
-              <p class="screenshot-hint">Нажмите на изображение, чтобы увеличить его.</p>
-              <div class="gallery-controls" role="group" aria-label="Управление галереей" hidden>
-                <button type="button" data-step="-1" aria-label="Предыдущий кадр">←</button>
-                <span class="gallery-count" role="status"></span>
-                <button type="button" data-step="1" aria-label="Следующий кадр">→</button>
-              </div>
+          <div class="case-gallery" aria-label="Интерфейсы «Теплограда»">
+            <div class="gallery-tabs" aria-label="Экраны проекта" hidden>
+              <button type="button" id="tab-home" aria-controls="teplograd-home">Главная</button>
+              <button type="button" id="tab-catalog" aria-controls="teplograd-catalog">Каталог</button>
+              <button type="button" id="tab-cart" aria-controls="teplograd-cart">Заявка</button>
+              <button type="button" id="tab-mobile" aria-controls="teplograd-mobile">На телефоне</button>
+              <button type="button" id="tab-demo" aria-controls="teplograd-demo">Обмен с 1С</button>
             </div>
-            <div class="project-copy">
-              <p class="project-status">Демонстрация и доработка</p>
-              <h3>Теплоград</h3>
-              <p class="project-subtitle">Интернет-магазин отопительного оборудования</p>
-              <p>В проекте дорабатывались и проверялись каталог, поиск, фильтры, корзина, оформление заявок и уведомления. Для показа обмена товарами и заказами использовался симулятор 1С.</p>
-              <p>На скриншотах показана тестовая версия магазина с демонстрационными данными.</p>
-              <p class="project-note">Реальная 1С пока не подключена. Работа магазина с настоящими заказами не подтверждена.</p>
-            </div>
-            <details class="project-materials">
-              <summary>Дополнительные материалы</summary>
-              <div class="materials-grid">
-                <figure id="teplograd-home">
-                  <a class="screenshot-link" href="assets/screenshots/01-home.webp" aria-label="Увеличить: Главная страница магазина">
-                    <img src="assets/screenshots/01-home.webp" width="1800" height="1022" alt="Главный экран магазина отопительного оборудования" loading="lazy" decoding="async">
-                  </a>
-                  <figcaption>Главная страница магазина</figcaption>
-                </figure>
-                <figure id="teplograd-demo">
-                  <a class="screenshot-link" href="assets/screenshots/05-demo-1c.webp" aria-label="Увеличить: Симулятор 1С для тестового обмена">
-                    <img src="assets/screenshots/05-demo-1c.webp" width="1800" height="1379" alt="Интерфейс симулятора обмена данными" loading="lazy" decoding="async">
-                  </a>
-                  <figcaption>Симулятор 1С для тестового обмена</figcaption>
-                </figure>
+            <article class="gallery-panel" id="teplograd-home">
+              <figure class="shot">
+                <a class="shot-link" href="assets/screenshots/01-home.webp" aria-label="Увеличить главный экран магазина">
+                  <img src="assets/screenshots/01-home.webp" width="1800" height="1022" alt="Главная страница «Теплограда» с кнопками перехода в каталог и консультации" loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <div class="panel-copy">
+                <h3>Первый экран магазина</h3>
+                <p>Покупатель сразу видит, что продаёт магазин, и может открыть каталог или запросить консультацию.</p>
+                <a class="text-link" href="#teplograd-catalog" data-gallery-link>Перейти к каталогу <span aria-hidden="true">→</span></a>
               </div>
-            </details>
-          </article>
-        </div>
-      </div>
-    </section>
+            </article>
+            <article class="gallery-panel" id="teplograd-catalog">
+              <figure class="shot">
+                <a class="shot-link" href="assets/screenshots/02-catalog.webp" aria-label="Увеличить каталог">
+                  <img src="assets/screenshots/02-catalog.webp" width="1800" height="1061" alt="Каталог «Теплограда» с фильтрами и карточками отопительного оборудования" loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <div class="panel-copy">
+                <h3>Поиск, фильтры и карточки</h3>
+                <p>Поиск и фильтры помогают найти оборудование по названию, сузить список товаров и открыть нужную карточку.</p>
+                <a class="text-link" href="#search-example">Попробовать каталог <span aria-hidden="true">↓</span></a>
+              </div>
+            </article>
+            <article class="gallery-panel" id="teplograd-cart">
+              <figure class="shot">
+                <a class="shot-link" href="assets/screenshots/03-cart.webp" aria-label="Увеличить форму заявки">
+                  <img src="assets/screenshots/03-cart.webp" width="1800" height="1280" alt="Форма заявки «Теплограда» с товарами, телефоном и полем комментария" loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <div class="panel-copy">
+                <h3>Заявка из корзины</h3>
+                <p>Перед отправкой заявки покупатель видит товары и сумму. В форме можно оставить телефон и комментарий.</p>
+                <a class="text-link" href="#order-demo">Смотреть, как это работает <span aria-hidden="true">↓</span></a>
+              </div>
+            </article>
+            <article class="gallery-panel" id="teplograd-mobile">
+              <figure class="shot shot-mobile">
+                <a class="shot-link" href="assets/screenshots/04-mobile.webp" aria-label="Увеличить мобильную витрину">
+                  <img src="assets/screenshots/04-mobile.webp" width="688" height="1370" alt="Мобильная витрина «Теплограда» с кнопкой перехода в каталог и кнопкой заявки" loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <div class="panel-copy">
+                <h3>Магазин на телефоне</h3>
+                <p>Адаптировал кнопку заявки для небольшого экрана и добавил прокрутку в диалогах, чтобы поля формы оставались доступны.</p>
+              </div>
+            </article>
+            <article class="gallery-panel" id="teplograd-demo">
+              <figure class="shot">
+                <a class="shot-link" href="assets/screenshots/05-demo-1c.webp" aria-label="Увеличить экран симулятора 1С">
+                  <img src="assets/screenshots/05-demo-1c.webp" width="1800" height="1379" alt="Симулятор 1С:Управление торговлей 10.3 с демонстрационной номенклатурой" loading="lazy" decoding="async">
+                </a>
+              </figure>
+              <div class="panel-copy">
+                <h3>Демонстрация обмена с 1С</h3>
+                <p>Локально проверил передачу каталога и остатков на сайт, получение заказа и подтверждение его обработки в симуляторе. Подключение реальной базы 1С пока не выполнено.</p>
+              </div>
+            </article>
+          </div>
 
-    <section class="section wrap process" id="process" aria-labelledby="process-title">
-      <div><p class="eyebrow"><span></span> Процесс</p><h2 id="process-title">Как я работаю</h2></div>
-      <ol class="steps">
-        <li><div><h3>Обсуждаем задачу</h3><p>Вы рассказываете о бизнесе, клиентах и том, что должен делать сайт.</p></div></li>
-        <li><div><h3>Согласовываем работу</h3><p>Фиксируем функции, стоимость и сроки.</p></div></li>
-        <li><div><h3>Разрабатываю сайт</h3><p>Собираю страницы и настраиваю согласованные функции.</p></div></li>
-        <li><div><h3>Показываю результат</h3><p>Вы смотрите сайт и даёте обратную связь.</p></div></li>
-        <li><div><h3>Проверяю работу</h3><p>Проверяю согласованные функции и отображение на разных экранах.</p></div></li>
-        <li><div><h3>Передаю сайт</h3><p>Передаю файлы и объясняю, как вносить обычные изменения.</p></div></li>
-      </ol>
-    </section>
+          <section class="case-video" id="order-demo" aria-labelledby="order-demo-title">
+            <div class="case-video-copy">
+              <p class="eyebrow">Запись демоверсии · 23 секунды</p>
+              <h3 id="order-demo-title">Как оформляется заявка</h3>
+              <p id="order-demo-description">Покупатель находит котёл, добавляет его в корзину, заполняет форму и получает номер тестовой заявки.</p>
+            </div>
+            <video controls playsinline preload="none" width="1440" height="1024"
+              poster="assets/video/teplograd-order-demo.webp"
+              aria-labelledby="order-demo-title" aria-describedby="order-demo-description">
+              <source src="assets/video/teplograd-order-demo.mp4" type="video/mp4">
+              <a href="assets/video/teplograd-order-demo.mp4">Скачать запись демоверсии</a>
+            </video>
+          </section>
 
-    <section class="section about-section" id="about" aria-labelledby="about-title">
-      <div class="wrap about">
-        <div class="monogram" aria-hidden="true">ДС</div>
-        <div><p class="eyebrow"><span></span> Обо мне</p><h2 id="about-title">Дмитрий Снеговской</h2>
-          <p>Учусь на пятом курсе КубГТУ по специальности «Компьютерная безопасность». Живу в Краснодаре, работаю с заказчиками удалённо.</p>
-          <p>У меня есть практический опыт разработки и доработки интернет-магазина, работы с WordPress и каталогами товаров. Занимался размещением товаров и анализом ассортимента на Ozon и Wildberries.</p>
-        </div>
-      </div>
-    </section>
+          <section class="search-example" id="search-example" aria-labelledby="catalog-example-title">
+            <div class="catalog-example-copy">
+              <p class="eyebrow">Демокаталог</p>
+              <h3 id="catalog-example-title">Как покупатель находит товар</h3>
+              <p>В каталоге можно искать оборудование по названию, выбрать категорию и оставить в выдаче только товары в наличии.</p>
+              <p class="catalog-example-tip" hidden>Попробуйте найти <strong>радиатор</strong> и включить фильтр <strong>«В наличии»</strong>.</p>
+            </div>
+            <div class="search-playground">
+              <div class="search-widget" hidden>
+                <label for="product-search">Поиск по названию</label>
+                <div class="search-field">
+                  <span aria-hidden="true"></span>
+                  <input type="search" id="product-search" placeholder="Радиатор" autocomplete="off">
+                </div>
+                <div class="catalog-filters">
+                  <div class="catalog-categories" role="group" aria-label="Категория товара">
+                    <button type="button" data-category-filter="" aria-pressed="true">Все</button>
+                    <button type="button" data-category-filter="boilers" aria-pressed="false">Котлы</button>
+                    <button type="button" data-category-filter="pumps" aria-pressed="false">Насосы</button>
+                    <button type="button" data-category-filter="radiators" aria-pressed="false">Радиаторы</button>
+                  </div>
+                  <label class="catalog-availability"><input type="checkbox" id="available-only"> В наличии</label>
+                </div>
+                <div class="catalog-results-bar">
+                  <span id="search-status" role="status"></span>
+                  <button type="button" id="reset-catalog" aria-label="Сбросить поиск и фильтры" hidden>Сбросить</button>
+                </div>
+              </div>
+              <ul class="search-results" id="search-results" role="list">
+                <li data-category="boilers" data-in-stock>
+                  <span class="product-name">Газовый котёл</span><span class="product-stock">В наличии</span>
+                </li>
+                <li data-category="pumps" data-in-stock>
+                  <span class="product-name">Циркуляционный насос</span><span class="product-stock">В наличии</span>
+                </li>
+                <li data-category="radiators" data-in-stock>
+                  <span class="product-name">Панельный радиатор</span><span class="product-stock">В наличии</span>
+                </li>
+                <li data-category="radiators">
+                  <span class="product-name">Алюминиевый радиатор</span><span class="product-stock">Нет в наличии</span>
+                </li>
+              </ul>
+              <p class="search-empty" hidden>Товары не найдены. Измените запрос или сбросьте фильтры.</p>
+            </div>
+          </section>
+        </section>
 
-    <section class="section wrap" id="contact" aria-labelledby="contact-title">
-      <div class="contact-card">
-        <div>
-          <p class="eyebrow"><span></span> Контакты</p>
-          <h2 id="contact-title">Обсудим ваш сайт?</h2>
-          <p>Расскажите, чем занимается ваша компания и какой сайт или доработка вам нужны.</p>
-          <a class="button secondary contact-telegram" href="https://t.me/DmitrySneg">Написать в Telegram <span aria-hidden="true">↗</span></a>
-        </div>
-        <dl class="contact-list">
-          <div><dt>Телефон</dt><dd><a href="tel:+79180168800">+7 (918) 016-88-00</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:sva1505a@gmail.com">sva1505a@gmail.com</a></dd></div>
-          <div><dt>Telegram</dt><dd><a href="https://t.me/DmitrySneg">@DmitrySneg</a></dd></div>
-        </dl>
+        <section class="section services-section" id="services" aria-labelledby="services-title">
+          <div class="wrap">
+            <p class="eyebrow">Услуги</p>
+            <h2 id="services-title">Чем могу помочь</h2>
+            <div class="services-grid">
+              <article class="service">
+                <h3>Сайт для бизнеса</h3>
+                <p>Страницы с услугами, примерами работ и контактами. Форма заявки с уведомлениями в почту или мессенджер, если выбранный сервис поддерживает подключение.</p>
+              </article>
+              <article class="service">
+                <h3>Каталог или магазин</h3>
+                <p>Карточки товаров, поиск, фильтры и корзина. Состав функций зависит от ассортимента и того, как вы принимаете заказы.</p>
+              </article>
+              <article class="service">
+                <h3>Доработка сайта</h3>
+                <p>Обновление страниц, исправление ошибок, настройка WordPress и проверка того, как сайт работает на телефоне.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section wrap process" id="process" aria-labelledby="process-title">
+          <div>
+            <p class="eyebrow">Процесс</p>
+            <h2 id="process-title">Как я работаю</h2>
+          </div>
+          <ol class="steps" role="list">
+            <li><span class="step-number" aria-hidden="true">1</span><div><h3>Обсуждаем задачу</h3><p>Уточняем, что нужно клиентам сайта, какие функции важны, и согласовываем объём, стоимость и сроки.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">2</span><div><h3>Показываю промежуточную версию</h3><p>Вы смотрите сайт в процессе разработки и можете дать обратную связь до передачи.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">3</span><div><h3>Проверяю и передаю сайт</h3><p>Прохожу согласованные сценарии на компьютере и телефоне. Объясняю, как обновлять содержимое.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="section about-section" id="about" aria-labelledby="about-title">
+          <div class="wrap about">
+            <p class="eyebrow">Обо мне</p>
+            <div>
+              <h2 id="about-title">Дмитрий Снеговской</h2>
+              <p>Учусь на пятом курсе КубГТУ по специальности «Компьютерная безопасность». Живу в Краснодаре, работаю с заказчиками удалённо.</p>
+              <p>Работал с WordPress, размещал товары и анализировал ассортимент на Ozon и Wildberries.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section wrap" id="contact" aria-labelledby="contact-title">
+          <div class="contact-card">
+            <div>
+              <p class="eyebrow">Контакты</p>
+              <h2 id="contact-title">Обсудим ваш сайт?</h2>
+              <p>Расскажите, чем занимается ваша компания и какой сайт или доработка вам нужны.</p>
+              <a class="button button-primary" href="https://t.me/DmitrySneg">Написать в Telegram <span class="diagonal-arrow" aria-hidden="true"></span></a>
+            </div>
+            <dl class="contact-list">
+              <div><dt>Телефон</dt><dd><a href="tel:+79180168800">+7 (918) 016-88-00</a></dd></div>
+              <div><dt>Почта</dt><dd><a href="mailto:sva1505a@gmail.com">sva1505a@gmail.com</a></dd></div>
+            </dl>
+          </div>
+        </section>
       </div>
-    </section>
-  </main>
+    </main>
+  </div>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Дмитрий Снеговской</span>
+      <a href="#top">Наверх <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
   <dialog class="image-viewer" aria-labelledby="image-caption">
     <div class="viewer-header">
-      <p id="image-caption"></p>
+      <h2 id="image-caption"></h2>
       <form method="dialog"><button type="submit" autofocus>Закрыть <span aria-hidden="true">×</span></button></form>
     </div>
     <img alt="">
   </dialog>
-  <footer class="footer"><div class="wrap footer-inner"><span>© 2026 Дмитрий Снеговской</span><a href="#top">Наверх <span aria-hidden="true">↑</span></a></div></footer>
 </body>
 </html>
