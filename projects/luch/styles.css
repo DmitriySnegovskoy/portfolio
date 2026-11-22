@@ -42,6 +42,12 @@ section { scroll-margin-top: 1.25rem; }
 .skip:focus { transform: translateY(0); }
 .masthead { border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 5.1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.portfolio-header { display: flex; flex-direction: column; align-items: flex-start; padding-top: .45rem; }
+.portfolio-return {
+  display: inline-flex; align-items: center; min-height: 44px; color: var(--ink);
+  font-size: .9rem; text-underline-offset: .22em; white-space: nowrap;
+}
+.portfolio-return:hover { color: var(--amber-ink); }
 .brand {
   display: inline-flex; align-items: center; gap: .48rem; flex: none;
   text-decoration: none; font-weight: 750; font-size: 1.55rem; line-height: 1; letter-spacing: .13em;
@@ -80,6 +86,7 @@ h3 { font-size: 1.3rem; line-height: 1.2; }
 }
 .button-dark { color: var(--panel-text); background: var(--ink); }
 .button-dark:hover { background: #553b2a; }
+.portfolio-cta { margin-top: clamp(1.25rem, 3vw, 2rem); }
 .text-link { text-decoration: underline; text-underline-offset: .28em; font-size: .94rem; font-weight: 600; padding-block: .45rem; }
 .text-link:hover { color: var(--amber-ink); }
 
