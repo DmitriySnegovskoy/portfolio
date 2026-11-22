@@ -8,7 +8,8 @@
   const rubles = new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
-    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
   });
 
   const calculator = document.querySelector('#calculator');
@@ -119,8 +120,8 @@
 
   function renderEstimate() {
     const extras = allServices.filter(service => eligibleIds.has(service.id) && selected.has(service.id));
-    const total = extras.reduce((sum, service) => sum + service.price, type.price);
-    const formattedTotal = rubles.format(total);
+    const total = extras.reduce((sum, service) => sum + Math.round(service.price * 100), Math.round(type.price * 100));
+    const formattedTotal = rubles.format(total / 100);
     totalPrice.textContent = formattedTotal;
     mobileTotal.textContent = formattedTotal;
 
