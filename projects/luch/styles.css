@@ -86,6 +86,8 @@ h3 { font-size: 1.3rem; line-height: 1.2; }
 }
 .button-dark { color: var(--panel-text); background: var(--ink); }
 .button-dark:hover { background: #553b2a; }
+.button-outline { border-color: var(--amber-ink); color: var(--ink); }
+.button-outline:hover { background: #eee2d2; color: var(--amber-ink); }
 .portfolio-cta { margin-top: clamp(1.25rem, 3vw, 2rem); }
 .text-link { text-decoration: underline; text-underline-offset: .28em; font-size: .94rem; font-weight: 600; padding-block: .45rem; }
 .text-link:hover { color: var(--amber-ink); }

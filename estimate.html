@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1119">
+  <meta name="description" content="Предварительная оценка разработки нового сайта. Выберите тип сайта и посмотрите, как услуги влияют на стоимость.">
+  <title>Оценка стоимости сайта — Дмитрий Снеговской</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estimate.css">
+  <script src="assets/estimate-catalog.js" defer></script>
+  <script src="assets/estimate.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">ДС</span>
+        <span>Дмитрий Снеговской</span>
+      </a>
+      <a class="back-link" href="index.html#contact">В портфолио</a>
+    </div>
+  </header>
+
+  <main class="wrap main" id="main" tabindex="-1">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">Оценка стоимости сайта</h1>
+      <p>Выберите тип нового сайта и нужные функции. Калькулятор покажет базовую цену, стоимость дополнений и предварительный итог.</p>
+    </section>
+
+    <noscript><p class="panel">Для расчёта стоимости включите JavaScript в браузере.</p></noscript>
+
+    <div class="calculator" id="calculator" hidden>
+      <div class="configuration">
+        <fieldset class="panel type-panel">
+          <legend class="visually-hidden">Тип сайта</legend>
+          <h2>Какой сайт вам нужен?</h2>
+          <div class="types" id="site-types"></div>
+        </fieldset>
+
+        <section class="panel base-panel" aria-labelledby="base-title">
+          <div class="panel-heading">
+            <div>
+              <h2 id="base-title">Что входит в базу</h2>
+              <p id="base-description"></p>
+            </div>
+            <strong class="base-price" id="base-price"></strong>
+          </div>
+          <ul class="base-list" id="base-list"></ul>
+          <div class="included-services" id="included-services"></div>
+        </section>
+
+        <section class="panel extras-panel" aria-labelledby="extras-title">
+          <h2 id="extras-title">Дополнительные услуги</h2>
+          <p class="section-description">Отметьте нужные услуги. Нажмите «Что входит», чтобы посмотреть объём работ.</p>
+          <div id="extra-services"></div>
+        </section>
+      </div>
+
+      <aside class="panel estimate-panel" id="estimate" aria-labelledby="estimate-title" tabindex="-1">
+        <h2 id="estimate-title">Предварительный итог</h2>
+        <output class="total-price" id="total-price"></output>
+        <dl class="breakdown" id="breakdown"></dl>
+        <p class="estimate-note">Расчёт основан на базовых ценах. Итоговую цену уточним после согласования объёма работ и проверки материалов. Оплата самого домена, хостинга и тарифов сервисов рассчитывается отдельно.</p>
+      </aside>
+      <a class="total-bar" href="#estimate">
+        <span>Смотреть расчёт</span>
+        <strong id="mobile-total"></strong>
+      </a>
+    </div>
+  </main>
+
+  <template id="type-template">
+    <label class="type-option">
+      <input type="radio" name="site-type">
+      <span class="type-copy">
+        <strong class="type-name"></strong>
+        <span class="type-description"></span>
+        <span class="type-price"></span>
+      </span>
+    </label>
+  </template>
+
+  <template id="service-template">
+    <article class="service">
+      <label class="choose-service">
+        <input type="checkbox">
+        <span class="service-copy">
+          <strong class="service-name"></strong>
+          <span class="service-description"></span>
+        </span>
+        <span class="service-price"></span>
+      </label>
+      <details class="service-details">
+        <summary>Что входит</summary>
+        <p></p>
+        <p></p>
+      </details>
+    </article>
+  </template>
+</body>
+</html>

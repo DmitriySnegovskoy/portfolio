@@ -611,6 +611,7 @@ section[id], article[id], .search-example { scroll-margin-top: 24px; }
 }
 .contact-card .eyebrow { color: #d3c6ff; }
 .contact-card p:not(.eyebrow) { color: #e6def7; margin: 13px 0 20px; line-height: 1.6; }
+.contact-actions { margin-top: 0; }
 .contact-list { display: grid; gap: 13px; }
 .contact-list div { padding-bottom: 12px; border-bottom: 1px solid #ffffff31; }
 .contact-list dt { color: #d7ccef; font-size: .8rem; }
