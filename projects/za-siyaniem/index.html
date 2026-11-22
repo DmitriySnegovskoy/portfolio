@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ru" data-light="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="За сиянием — интерактивное демо студии северных экспедиций. Выберите маршрут на одну, две или три ночи.">
+  <meta name="demo-project" content="za-siyaniem-v2">
+  <title>За сиянием — студия северных экспедиций</title>
+  <link rel="icon" href="assets/compass.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="aurora.js" defer></script>
+  <script src="routes.js" defer></script>
+  <script src="scene.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero-landscape" aria-hidden="true">
+        <source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
+        <img src="assets/hero.jpg" width="1536" height="1024" alt="" fetchpriority="high">
+      </picture>
+      <canvas class="aurora" aria-hidden="true"></canvas>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <header class="hero-top frame">
+        <div class="wordmark">
+          <img src="assets/compass.svg" width="34" height="34" alt="">
+          <span>Студия северных<br>экспедиций</span>
+        </div>
+        <nav id="section-menu" class="section-menu" aria-label="Разделы страницы">
+          <a href="#routes">Маршруты</a><a href="#gallery">Галерея</a><a href="#sky">Небо</a><a href="#questions">Вопросы</a>
+        </nav>
+        <div class="header-controls">
+          <fieldset class="light-switch">
+            <legend class="sr-only">Освещение сцены</legend>
+            <input class="sr-only" type="radio" name="light" id="twilight" value="twilight">
+            <label for="twilight">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18M6 14a6 6 0 0 1 12 0M12 3v3M4 8l2 2m14-2-2 2M7 21h10"/></svg>
+              Сумерки
+            </label>
+            <input class="sr-only" type="radio" name="light" id="night" value="night" checked>
+            <label for="night">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.5a9 9 0 0 1-10.4-10.4A9 9 0 1 0 20.9 13.5Z"/></svg>
+              Ночь
+            </label>
+          </fieldset>
+          <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="section-menu" aria-label="Меню разделов">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </header>
+      <div class="hero-copy frame">
+        <p class="eyebrow hero-kicker"><span></span> Кольский полуостров · За полярным кругом</p>
+        <h1 id="hero-title">За сиянием<span class="title-dot">.</span></h1>
+        <p class="hero-lead">К тёмным берегам Баренцева моря — туда, где зима светится.</p>
+        <a class="button button-primary" href="#routes">Выбрать маршрут
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15m-6-6 6 6 6-6"/></svg>
+        </a>
+      </div>
+      <div class="hero-foot frame">
+        <span><b>69° С. Ш.</b> <i></i> Баренцево море</span>
+        <a class="hero-index" href="#gallery"><span></span> Полевая заметка 01 <b aria-hidden="true">↗</b></a>
+      </div>
+    </section>
+
+    <section class="route-section" aria-labelledby="routes">
+      <div class="frame">
+        <p class="eyebrow section-kicker">Демонстрационные маршруты</p>
+        <div class="section-intro">
+          <h2 id="routes" tabindex="-1">Сколько ночей<br>на Севере?</h2>
+          <p>От одной ночи в тундре до трёх ночей на побережье. Выберите темп и соберите свой план.</p>
+        </div>
+        <fieldset class="route-options" id="route-options">
+          <legend class="sr-only">Длительность маршрута</legend>
+        </fieldset>
+        <noscript>Включите JavaScript, чтобы выбирать маршруты и скачивать памятку.</noscript>
+        <div id="route-experience" hidden>
+          <section class="map-section" aria-labelledby="map-title">
+            <div class="map-heading">
+              <h3 id="map-title">Схема маршрута</h3>
+              <p>Не в масштабе</p>
+            </div>
+            <p class="map-hint">Выберите точку, чтобы увидеть остановку.</p>
+            <div class="map-layout">
+              <div class="map-board">
+                <svg class="map-art" viewBox="0 0 640 380" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <pattern id="map-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                      <path d="M32 0H0V32" fill="none" stroke="#87a7bf" stroke-opacity=".14"/>
+                    </pattern>
+                  </defs>
+                  <rect width="640" height="380" fill="#0b202d"/>
+                  <path d="M0 58 73 91 138 76 175 109 213 100 249 143 302 152 323 177 355 150 382 151 423 93 446 113 487 63 508 76 543 46 567 56 601 26 640 40V380H0Z" fill="#152e38" stroke="#66949d" stroke-opacity=".65" stroke-width="2"/>
+                  <path d="M0 169 113 166 185 214 240 200 298 232 353 221 418 238 507 178 640 143M0 220 102 218 178 267 233 252 319 284 367 264 429 279 526 227 640 204M0 289 101 268 178 323 242 308 325 336 374 308 449 315 534 274 640 250" fill="none" stroke="#74969f" stroke-opacity=".23"/>
+                  <rect width="640" height="380" fill="url(#map-grid)"/>
+                  <polyline id="map-line" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <span class="map-sea" aria-hidden="true">Баренцево море</span>
+                <div id="map-nodes" role="group" aria-label="Точки на схеме"></div>
+              </div>
+              <div class="stop-strip" id="stop-strip" role="group" aria-label="Список остановок"></div>
+              <article class="stop-detail" aria-live="polite" aria-atomic="true">
+                <img id="stop-photo" src="assets/tundra.jpg" width="1024" height="512" loading="lazy" alt="">
+                <div>
+                  <p class="eyebrow" id="stop-counter"></p>
+                  <h4 id="stop-name"></h4>
+                  <p id="stop-description"></p>
+                </div>
+              </article>
+            </div>
+          </section>
+          <div class="route-detail">
+            <figure class="route-photo">
+              <img id="route-photo" src="assets/tundra.jpg" width="1024" height="512" loading="lazy" alt="">
+              <figcaption><span id="photo-caption"></span></figcaption>
+            </figure>
+            <article class="route-story">
+              <p class="eyebrow route-meta" id="route-meta"></p>
+              <h3 id="route-name"></h3>
+              <p id="route-description"></p>
+              <h4>Остановки</h4>
+              <ol class="stops" id="route-stops"></ol>
+            </article>
+          </div>
+          <div class="program">
+            <h3>По дням</h3>
+            <ol class="program-days" id="program-days"></ol>
+          </div>
+          <div class="plan">
+            <div>
+              <p class="eyebrow">Ваш план</p>
+              <h3 id="plan-title">1 ночь · Первая ночь в тундре</h3>
+              <p>Демонстрационный маршрут. Сияние зависит от облачности и активности Солнца.</p>
+            </div>
+            <div class="copy-actions">
+              <button type="button" class="button button-outline" id="copy-plan" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg>
+                Скопировать план
+              </button>
+              <a class="button button-outline" id="download-plan" download>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
+                Скачать памятку
+              </a>
+              <p id="copy-status" role="status"></p>
+            </div>
+            <div class="copy-fallback" id="copy-fallback" hidden>
+              <label for="plan-text">Текст плана</label>
+              <textarea id="plan-text" rows="7" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="journal" aria-labelledby="gallery">
+      <div class="frame">
+        <div class="section-intro">
+          <h2 id="gallery" tabindex="-1">Полевой журнал</h2>
+          <p>Три иллюстрации к маршрутам по Кольскому полуострову.</p>
+        </div>
+        <div class="journal-grid">
+          <figure>
+            <img src="assets/tundra.jpg" width="1024" height="512" loading="lazy" alt="Снежная дорога под лиловым небом">
+            <figcaption><h3>Дорога в тундру</h3><p>Последний свет над открытым плато.</p></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/cabin.jpg" width="1024" height="512" loading="lazy" alt="Деревянный дом с освещёнными окнами на берегу">
+            <figcaption><h3>Свет в окнах</h3><p>Дом у Баренцева моря.</p></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/coast.jpg" width="1024" height="512" loading="lazy" alt="Крутые заснеженные скалы над морской бухтой">
+            <figcaption><h3>Скалы за бухтой</h3><p>Берег у дальнего мыса.</p></figcaption>
+          </figure>
+        </div>
+        <p class="illustration-note">Пейзажи сгенерированы для демонстрации маршрутов.</p>
+      </div>
+    </section>
+    <section class="sky-section" aria-labelledby="sky">
+      <div class="frame">
+        <p class="eyebrow">Симуляция облачности</p>
+        <div class="section-intro">
+          <h2 id="sky" tabindex="-1">Поймай просвет</h2>
+          <p>Посмотрите, как облака скрывают сияние над бухтой.</p>
+        </div>
+        <div class="sky-demo">
+          <div class="sky-visual" aria-hidden="true">
+            <img src="assets/hero.jpg" width="1536" height="1024" alt="" loading="lazy">
+            <canvas class="water-ripples"></canvas>
+            <canvas class="aurora"></canvas>
+            <canvas class="water-reflection"></canvas>
+            <canvas class="cloud-layer"></canvas>
+          </div>
+          <div class="sky-controls">
+            <div class="sky-controls-top">
+              <label for="cloudiness">Облачность</label>
+              <output id="cloud-value" for="cloudiness">0%</output>
+            </div>
+            <input type="range" id="cloudiness" min="0" max="100" step="1" value="0" aria-describedby="sky-state">
+            <div class="sky-scale" aria-hidden="true"><span>Ясно</span><span>Сплошные облака</span></div>
+            <p id="sky-state" role="status">Ясно. Сияние хорошо видно.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="field-guide" aria-labelledby="questions">
+      <div class="frame guide-layout">
+        <div class="guide-intro">
+          <p class="eyebrow">Памятка экспедиции</p>
+          <h2 id="questions" tabindex="-1">Перед поездкой</h2>
+        </div>
+        <div class="questions">
+          <details>
+            <summary>Что взять с собой?</summary>
+            <div class="answer"><ul id="kit-list"></ul><noscript>Тёплая одежда, зимние ботинки, налобный фонарь и термос.</noscript></div>
+          </details>
+          <details>
+            <summary>Где мы ночуем?</summary>
+            <div class="answer"><ul id="stay-list"></ul></div>
+          </details>
+          <details>
+            <summary>Сколько предстоит ходить?</summary>
+            <div class="answer"><ul id="walk-list"></ul></div>
+          </details>
+          <details>
+            <summary>Что делать, если сияния не будет?</summary>
+            <div class="answer"><p>При облаках ищем просвет с ближайшей точки наблюдения. Прогулки по плато, к бухте и к дальнему мысу остаются в дневном плане, если позволяет погода.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="frame">
+      <div class="wordmark"><img src="assets/compass.svg" width="28" height="28" alt=""><span>За сиянием</span></div>
+      <p>Вымышленная студия северных экспедиций. Локальное демо.</p>
+    </div>
+  </footer>
+</body>
+</html>

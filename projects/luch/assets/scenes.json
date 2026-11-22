@@ -1,0 +1,408 @@
+{
+  "version": 1,
+  "notes": {
+    "coordinates": "Нормированные доли исходного кадра от 0 до 1. Начало в левом верхнем углу. Общую трансформацию изображения применять ко всем слоям и точкам.",
+    "intensity": "groups от 0 до 1 задаёт относительную силу группы. brightness от 0 до 100 умножает силу всех добавленных слоёв. При нуле остаётся исходное изображение.",
+    "visual": "Художественная визуальная демонстрация. Подписи описывают выбор посетителя.",
+    "beforeAfter": "Один и тот же исходный кадр, состояния before и after рендерить в одинаковых контейнерах. При положении 0 виден before, при 100 after.",
+    "responsive": "На телефоне использовать полный кадр и управление ниже него. Если используется кадрирование, вычислять положение точек в общей системе координат."
+  },
+  "temperatures": {
+    "warm": {
+      "label": "Тёплый",
+      "tint": "#FFD6A0"
+    },
+    "cool": {
+      "label": "Прохладный",
+      "tint": "#D3E6FF"
+    }
+  },
+  "hero": {
+    "image": "inputs/images/living-room.png",
+    "width": 1672,
+    "height": 941,
+    "zones": {
+      "floor": {
+        "label": "Торшер",
+        "hotspots": [
+          [
+            0.155,
+            0.4
+          ]
+        ],
+        "glow_center": [
+          0.2,
+          0.55
+        ],
+        "glow_size": [
+          0.26,
+          0.55
+        ]
+      },
+      "wall": {
+        "label": "Подсветка стены",
+        "hotspots": [
+          [
+            0.53,
+            0.204
+          ]
+        ],
+        "glow_center": [
+          0.53,
+          0.34
+        ],
+        "glow_size": [
+          0.64,
+          0.36
+        ]
+      },
+      "ceiling": {
+        "label": "Потолочный свет",
+        "hotspots": [
+          [
+            0.31,
+            0.08
+          ],
+          [
+            0.51,
+            0.08
+          ],
+          [
+            0.705,
+            0.08
+          ]
+        ],
+        "glow_center": [
+          0.55,
+          0.5
+        ],
+        "glow_size": [
+          0.8,
+          0.75
+        ]
+      }
+    },
+    "defaultPreset": "evening",
+    "presets": [
+      {
+        "id": "evening",
+        "label": "Вечер дома",
+        "description": "Торшер и мягкий свет на стене.",
+        "state": {
+          "brightness": 65,
+          "temperature": "warm",
+          "groups": {
+            "floor": 1,
+            "wall": 0.75,
+            "ceiling": 0
+          }
+        }
+      },
+      {
+        "id": "work",
+        "label": "Рабочее место",
+        "description": "Больше общего света и спокойное заполнение стены.",
+        "state": {
+          "brightness": 90,
+          "temperature": "cool",
+          "groups": {
+            "floor": 0,
+            "wall": 0.4,
+            "ceiling": 1
+          }
+        }
+      },
+      {
+        "id": "guests",
+        "label": "Встреча гостей",
+        "description": "Сочетание локального и общего света.",
+        "state": {
+          "brightness": 80,
+          "temperature": "warm",
+          "groups": {
+            "floor": 0.85,
+            "wall": 0.7,
+            "ceiling": 0.65
+          }
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "living",
+      "title": "Мягкий вечерний свет",
+      "room": "Гостиная",
+      "image": "inputs/images/living-room.png",
+      "width": 1672,
+      "height": 941,
+      "zones": {
+        "floor": {
+          "label": "Торшер",
+          "hotspots": [
+            [
+              0.155,
+              0.4
+            ]
+          ],
+          "glow_center": [
+            0.2,
+            0.55
+          ],
+          "glow_size": [
+            0.26,
+            0.55
+          ]
+        },
+        "wall": {
+          "label": "Подсветка стены",
+          "hotspots": [
+            [
+              0.53,
+              0.204
+            ]
+          ],
+          "glow_center": [
+            0.53,
+            0.34
+          ],
+          "glow_size": [
+            0.64,
+            0.36
+          ]
+        },
+        "ceiling": {
+          "label": "Потолочный свет",
+          "hotspots": [
+            [
+              0.31,
+              0.08
+            ],
+            [
+              0.51,
+              0.08
+            ],
+            [
+              0.705,
+              0.08
+            ]
+          ],
+          "glow_center": [
+            0.55,
+            0.5
+          ],
+          "glow_size": [
+            0.8,
+            0.75
+          ]
+        }
+      },
+      "before": {
+        "brightness": 30,
+        "temperature": "cool",
+        "groups": {
+          "floor": 0,
+          "wall": 0,
+          "ceiling": 1
+        }
+      },
+      "after": {
+        "brightness": 75,
+        "temperature": "warm",
+        "groups": {
+          "floor": 1,
+          "wall": 0.8,
+          "ceiling": 0.15
+        }
+      }
+    },
+    {
+      "id": "work",
+      "title": "Свет для рабочего места",
+      "room": "Кабинет",
+      "image": "inputs/images/work-room.png",
+      "width": 1672,
+      "height": 941,
+      "zones": {
+        "task": {
+          "label": "Настольная лампа",
+          "hotspots": [
+            [
+              0.79,
+              0.44
+            ]
+          ],
+          "glow_center": [
+            0.73,
+            0.65
+          ],
+          "glow_size": [
+            0.4,
+            0.28
+          ]
+        },
+        "ceiling": {
+          "label": "Общий свет",
+          "hotspots": [
+            [
+              0.23,
+              0.05
+            ],
+            [
+              0.39,
+              0.08
+            ],
+            [
+              0.54,
+              0.1
+            ]
+          ],
+          "glow_center": [
+            0.6,
+            0.52
+          ],
+          "glow_size": [
+            0.7,
+            0.75
+          ]
+        },
+        "shelf": {
+          "label": "Свет на стене",
+          "hotspots": [
+            [
+              0.8,
+              0.3
+            ]
+          ],
+          "glow_center": [
+            0.81,
+            0.38
+          ],
+          "glow_size": [
+            0.3,
+            0.3
+          ]
+        }
+      },
+      "before": {
+        "brightness": 30,
+        "temperature": "cool",
+        "groups": {
+          "task": 0,
+          "ceiling": 1,
+          "shelf": 0
+        }
+      },
+      "after": {
+        "brightness": 85,
+        "temperature": "warm",
+        "groups": {
+          "task": 1,
+          "ceiling": 0.4,
+          "shelf": 0.3
+        }
+      }
+    },
+    {
+      "id": "cafe",
+      "title": "Свет над столами и стойкой",
+      "room": "Кафе",
+      "image": "inputs/images/cafe.png",
+      "width": 1672,
+      "height": 941,
+      "zones": {
+        "pendants": {
+          "label": "Подвесы над столами",
+          "hotspots": [
+            [
+              0.23,
+              0.32
+            ],
+            [
+              0.35,
+              0.4
+            ],
+            [
+              0.39,
+              0.45
+            ]
+          ],
+          "glow_center": [
+            0.32,
+            0.72
+          ],
+          "glow_size": [
+            0.46,
+            0.4
+          ]
+        },
+        "counter": {
+          "label": "Подсветка стойки",
+          "hotspots": [
+            [
+              0.82,
+              0.48
+            ]
+          ],
+          "glow_center": [
+            0.81,
+            0.6
+          ],
+          "glow_size": [
+            0.36,
+            0.4
+          ]
+        },
+        "fill": {
+          "label": "Общее заполнение",
+          "hotspots": [
+            [
+              0.65,
+              0.2
+            ]
+          ],
+          "glow_center": [
+            0.61,
+            0.47
+          ],
+          "glow_size": [
+            0.7,
+            0.7
+          ]
+        }
+      },
+      "before": {
+        "brightness": 35,
+        "temperature": "cool",
+        "groups": {
+          "pendants": 0,
+          "counter": 0,
+          "fill": 1
+        }
+      },
+      "after": {
+        "brightness": 80,
+        "temperature": "warm",
+        "groups": {
+          "pendants": 1,
+          "counter": 0.85,
+          "fill": 0.2
+        }
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": "room",
+      "label": "Одна комната"
+    },
+    {
+      "id": "apartment",
+      "label": "Вся квартира"
+    },
+    {
+      "id": "commercial",
+      "label": "Коммерческое пространство"
+    }
+  ]
+}
