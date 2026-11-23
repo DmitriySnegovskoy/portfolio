@@ -1,7 +1,13 @@
 (() => {
   'use strict';
 
-  const { types, groups } = estimateCatalog;
+  const { groups } = estimateCatalog;
+  const types = estimateCatalog.types.map(option => option.id === 'corporate' ? {
+    ...option,
+    description: 'До пяти страниц, включая главную.',
+    scope: 'В стоимость входят до пяти отдельных страниц, включая главную, и размещение готовых текстов и изображений. У каждой страницы свой адрес. Если нужно написать тексты или подобрать изображения, согласуем объём и стоимость этой работы заранее.',
+    base: option.base.filter(item => item !== 'Страницы из ваших материалов'),
+  } : option);
   const allServices = groups.flatMap(group => group.services);
   const servicesById = new Map(allServices.map(service => [service.id, service]));
   const selected = new Set();
@@ -46,12 +52,15 @@
   }
 
   function renderService(service, included = false) {
+    const extraCompanyPage = type.id === 'corporate' && service.id === 'pages' && !included;
     const card = serviceTemplate.content.cloneNode(true);
     const choice = card.querySelector('.choose-service');
     const input = choice.querySelector('input');
     const price = choice.querySelector('.service-price');
     choice.querySelector('.service-name').textContent = service.name;
-    choice.querySelector('.service-description').textContent = service.description;
+    choice.querySelector('.service-description').textContent = extraCompanyPage
+      ? 'В расчёте учитывается одна страница сверх пяти. Если нужно несколько дополнительных страниц, согласуем их отдельно.'
+      : service.description;
 
     if (included) {
       const entry = document.createElement('div');
@@ -74,8 +83,12 @@
     summary.append(serviceContext);
 
     const [work, factor] = card.querySelectorAll('.service-details p');
-    work.textContent = service.work;
-    factor.textContent = service.factor;
+    work.textContent = extraCompanyPage
+      ? 'Размещаю дополнительную страницу из готовых материалов, добавляю ссылки на неё и проверяю отображение на телефоне.'
+      : service.work;
+    factor.textContent = extraCompanyPage
+      ? 'Объём зависит от новых элементов и готовности материалов.'
+      : service.factor;
     return card;
   }
 
