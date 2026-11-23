@@ -56,18 +56,28 @@
           <p class="section-description">Отметьте нужные услуги. Нажмите «Что входит», чтобы посмотреть объём работ.</p>
           <div id="extra-services"></div>
         </section>
+
+        <a class="total-bar" href="#estimate">
+          <span>Смотреть расчёт</span>
+          <strong id="mobile-total"></strong>
+        </a>
       </div>
 
       <aside class="panel estimate-panel" id="estimate" aria-labelledby="estimate-title" tabindex="-1">
         <h2 id="estimate-title">Предварительный итог</h2>
         <output class="total-price" id="total-price"></output>
+        <div class="estimate-copy">
+          <button class="copy-button" id="copy-estimate" type="button">Скопировать расчёт</button>
+          <p class="copy-status" id="copy-status" role="status"></p>
+          <details class="copy-preview" id="copy-preview">
+            <summary>Посмотреть текст заявки</summary>
+            <label class="visually-hidden" for="estimate-text">Текст заявки</label>
+            <textarea id="estimate-text" rows="7" readonly spellcheck="false" aria-describedby="copy-status"></textarea>
+          </details>
+        </div>
         <dl class="breakdown" id="breakdown"></dl>
         <p class="estimate-note">Расчёт основан на базовых ценах. Итоговую цену уточним после согласования объёма работ и проверки материалов. Оплата самого домена, хостинга и тарифов сервисов рассчитывается отдельно.</p>
       </aside>
-      <a class="total-bar" href="#estimate">
-        <span>Смотреть расчёт</span>
-        <strong id="mobile-total"></strong>
-      </a>
     </div>
   </main>
 

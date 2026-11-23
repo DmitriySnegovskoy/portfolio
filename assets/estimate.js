@@ -24,6 +24,10 @@
   const breakdown = document.querySelector('#breakdown');
   const totalPrice = document.querySelector('#total-price');
   const mobileTotal = document.querySelector('#mobile-total');
+  const copyButton = document.querySelector('#copy-estimate');
+  const copyStatus = document.querySelector('#copy-status');
+  const copyPreview = document.querySelector('#copy-preview');
+  const estimateText = document.querySelector('#estimate-text');
 
   let type = types[0];
   let eligibleIds;
@@ -121,17 +125,37 @@
   function renderEstimate() {
     const extras = allServices.filter(service => eligibleIds.has(service.id) && selected.has(service.id));
     const total = extras.reduce((sum, service) => sum + Math.round(service.price * 100), Math.round(type.price * 100));
+    const formattedBase = rubles.format(type.price);
     const formattedTotal = rubles.format(total / 100);
+    const extraRows = extras.map(service => ({ name: service.name, amount: '+ ' + rubles.format(service.price) }));
     totalPrice.textContent = formattedTotal;
     mobileTotal.textContent = formattedTotal;
 
-    breakdown.replaceChildren(breakdownRow('База · ' + type.name, rubles.format(type.price)));
-    for (const service of extras) {
-      breakdown.append(breakdownRow(service.name, '+ ' + rubles.format(service.price)));
+    breakdown.replaceChildren(breakdownRow('База · ' + type.name, formattedBase));
+    for (const { name, amount } of extraRows) {
+      breakdown.append(breakdownRow(name, amount));
     }
-    if (extras.length === 0) {
+    if (extraRows.length === 0) {
       breakdown.append(breakdownRow('Дополнения', rubles.format(0)));
     }
+
+    if (!estimateText) return;
+    const lines = [
+      'Здравствуйте! Хочу обсудить разработку сайта.',
+      '',
+      'Тип сайта: ' + type.name,
+      'Базовая цена: ' + formattedBase,
+    ];
+    if (type.included.length > 0) {
+      const names = type.included.map(id => servicesById.get(id).name);
+      lines.push('Функции в базе: ' + names.join(', '));
+    }
+    if (extraRows.length > 0) {
+      lines.push('', 'Дополнения:', ...extraRows.map(({ name, amount }) => '- ' + name + ' — ' + amount));
+    }
+    lines.push('', 'Предварительная стоимость: ' + formattedTotal);
+    estimateText.value = lines.join('\n');
+    copyStatus.textContent = '';
   }
 
   function updateType() {
@@ -158,6 +182,32 @@
     if (checked) selected.add(value);
     else selected.delete(value);
     renderEstimate();
+  });
+
+  copyButton?.addEventListener('click', async () => {
+    const text = estimateText.value;
+    let copied = false;
+    copyStatus.textContent = '';
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      }
+    } catch {
+      // Browsers may block clipboard access even when the API is available.
+    }
+
+    if (text !== estimateText.value) return;
+    if (copied) {
+      copyStatus.textContent = 'Расчёт скопирован. Вставьте его в сообщение.';
+      return;
+    }
+
+    copyPreview.open = true;
+    copyStatus.textContent = 'Скопируйте выделенный текст через меню устройства или клавишами Ctrl+C / ⌘C.';
+    estimateText.focus();
+    estimateText.select();
+    estimateText.scrollTop = 0;
   });
 
   renderTypes();
