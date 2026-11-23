@@ -63,6 +63,12 @@
         <output class="total-price" id="total-price"></output>
         <dl class="breakdown" id="breakdown"></dl>
         <p class="estimate-note">Расчёт основан на базовых ценах. Итоговую цену уточним после согласования объёма работ и проверки материалов. Оплата самого домена, хостинга и тарифов сервисов рассчитывается отдельно.</p>
+        <div class="estimate-actions">
+          <button class="plan-action copy-plan" type="button" id="copy-plan">Скопировать план</button>
+          <a class="plan-action" id="telegram-plan" href="https://t.me/DmitrySneg" target="_blank" rel="noopener noreferrer">Обсудить в Telegram</a>
+        </div>
+        <p class="copy-status" id="copy-status" role="status"></p>
+        <textarea class="plan-text" id="plan-text" aria-label="Текст плана для копирования" rows="7" readonly hidden></textarea>
       </aside>
       <a class="total-bar" href="#estimate">
         <span>Смотреть расчёт</span>

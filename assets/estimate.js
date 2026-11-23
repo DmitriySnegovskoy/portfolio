@@ -24,6 +24,12 @@
   const breakdown = document.querySelector('#breakdown');
   const totalPrice = document.querySelector('#total-price');
   const mobileTotal = document.querySelector('#mobile-total');
+  const copyPlan = document.querySelector('#copy-plan');
+  const telegramPlan = document.querySelector('#telegram-plan');
+  const copyStatus = document.querySelector('#copy-status');
+  const planText = document.querySelector('#plan-text');
+  const telegram = new URL(telegramPlan.href);
+  const estimateDate = new Intl.DateTimeFormat('ru-RU', { dateStyle: 'long', timeZone: 'Europe/Moscow' });
 
   let type = types[0];
   let eligibleIds;
@@ -118,6 +124,28 @@
     return row;
   }
 
+  function updatePlan(extras, formattedTotal) {
+    const date = estimateDate.format(new Date());
+    const baseFeatures = [...type.base, ...type.included.map(id => servicesById.get(id).name)];
+    const serviceLines = extras.map(service => `• ${service.name} — ${rubles.format(service.price)}`);
+    planText.value = [
+      `Предварительный расчёт сайта от ${date}`,
+      `Тип сайта: ${type.name}`,
+      `Базовая стоимость: ${rubles.format(type.price)}`,
+      '',
+      'В базу входят:',
+      ...baseFeatures.map(feature => `• ${feature}`),
+      '',
+      ...(serviceLines.length ? ['Дополнительные услуги:', ...serviceLines] : ['Дополнительные услуги: не выбраны.']),
+      '',
+      `Предварительный итог: ${formattedTotal}`,
+      'Окончательную стоимость согласуем после уточнения задачи. Домен, хостинг и платные тарифы сервисов оплачиваются отдельно.',
+    ].join('\n');
+    telegram.searchParams.set('text', 'Здравствуйте! Хочу обсудить сайт по этому расчёту.\n\n' + planText.value);
+    telegramPlan.href = telegram.href;
+    copyStatus.textContent = '';
+  }
+
   function renderEstimate() {
     const extras = allServices.filter(service => eligibleIds.has(service.id) && selected.has(service.id));
     const total = extras.reduce((sum, service) => sum + Math.round(service.price * 100), Math.round(type.price * 100));
@@ -132,6 +160,7 @@
     if (extras.length === 0) {
       breakdown.append(breakdownRow('Дополнения', rubles.format(0)));
     }
+    updatePlan(extras, formattedTotal);
   }
 
   function updateType() {
@@ -158,6 +187,22 @@
     if (checked) selected.add(value);
     else selected.delete(value);
     renderEstimate();
+  });
+
+  copyPlan.addEventListener('click', async () => {
+    const text = planText.value;
+    try {
+      await navigator.clipboard.writeText(text);
+      if (planText.value !== text) return;
+      planText.hidden = true;
+      copyStatus.textContent = 'План скопирован. Его можно вставить в сообщение.';
+    } catch {
+      if (planText.value !== text) return;
+      planText.hidden = false;
+      planText.focus();
+      planText.select();
+      copyStatus.textContent = 'Скопируйте выделенный текст плана.';
+    }
   });
 
   renderTypes();

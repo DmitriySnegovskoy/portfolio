@@ -235,6 +235,39 @@ label.choose-service { cursor: pointer; }
 .breakdown dt { color: #c1d5d4; overflow-wrap: anywhere; }
 .breakdown dd { font-weight: 700; text-align: right; }
 .estimate-note { color: #b2c6c6; font-size: .875rem; }
+.estimate-actions { display: grid; gap: .5rem; margin-top: 1rem; }
+.plan-action {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding: .6rem .8rem;
+  border: 1px solid #60877e;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: .875rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+.plan-action:hover { border-color: var(--accent); background: #23463e; }
+.copy-plan { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+.copy-plan:hover { background: #a5efdf; }
+.copy-status { color: #bfe7de; font-size: .875rem; }
+.copy-status:not(:empty) { margin-top: .6rem; }
+.plan-text {
+  display: block;
+  width: 100%;
+  margin-top: .5rem;
+  padding: .65rem;
+  border: 1px solid #60877e;
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
 .total-bar { display: none; }
 
 @media (max-width: 62rem) {
